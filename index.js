@@ -2,9 +2,9 @@ const express = require('express')
 const qiniu = require('qiniu')
 const app = express()
 require('dotenv').config()
-const port = 3000
+const port = process.env.PORT
 
-app.post('/token', (req, res) => {
+app.post('/api/token', (req, res) => {
     const accessKey = process.env.ACCESS_KEY;
     const secretKey = process.env.SECRET_KEY;
     const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
